@@ -1,0 +1,49 @@
+<!--
+  Generated template for the IndexPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+
+<ion-content padding>
+  <ion-slides autoplay=2000 loop=true pager=true speed=2100 *ngIf='carouselItems.length>0'
+     style='height: 140px'>
+    <ion-slide *ngFor='let tmp of carouselItems'>
+      <img [src]="'http://localhost/framework/forStu/ajia_code/'+tmp.img" alt="">
+    </ion-slide>
+  </ion-slides>
+  <ion-scroll scrollX=true   style="height: 250px;white-space:nowrap">
+    <ion-card *ngFor='let tmp of newArrivalItems' style='display: inline-block' >
+      <ion-card-header >
+          <img [src]="'http://localhost/framework/forStu/ajia_code/'+tmp.pic" alt="" style="height:150px">
+      </ion-card-header>
+      <ion-card-content>{{tmp.title}}</ion-card-content>
+    </ion-card>
+  </ion-scroll>
+  <ion-list>
+    <ion-item text-wrap *ngFor='let tmp of recommendedItems' (click)='jump(tmp.pid)'>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-4>
+              <img [src]="'http://localhost/framework/forStu/ajia_code/'+tmp.pic" alt="">
+              </ion-col>
+              <ion-col col-6>
+              <ion-row>{{tmp.title}}</ion-row>
+              <ion-row>
+               <p>{{tmp.details}}</p> 
+              </ion-row>
+              </ion-col>
+              <ion-col col-2>
+                <button ion-button clear>
+                  <ion-icon name='cart'></ion-icon>
+                </button>
+              </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+
